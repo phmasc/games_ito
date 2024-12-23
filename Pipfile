@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 flet = "*"
+asyncio = "*"
 
 [dev-packages]
 
@@ -12,4 +13,4 @@ flet = "*"
 python_version = "3.12"
 
 [scripts]
-dev = "python flet/main.py"
+dev = "flet -d -r flet/main.py"
