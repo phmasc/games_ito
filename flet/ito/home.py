@@ -26,7 +26,8 @@ def ito_page(page: ft.Page):
             page.update()
 
             # Simula a chamada à API (troque pelo código real)
-            response = await api.start_game(room, name)  # Substitua pela chamada real
+            response = api.start_game(room, name)  # Substitua pela chamada real
+            print(f"Page ITO: {response}")
 
             # Navega para a nova rota se a resposta for válida
             if response.get("success", False):
@@ -37,7 +38,8 @@ def ito_page(page: ft.Page):
                 page.go(f"/ito/{room}/game")
             else:
                 pb.visible = False
-                message = response.get('message, "Erro ao iniciar o jogo')
+                message = response.get('message', 'Erro ao iniciar o jogo')
+                print(f'Caminho triste\n{message}')
                 room_input.error_text = message
                 page.update()
         except Exception as e:

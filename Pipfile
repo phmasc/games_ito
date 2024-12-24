@@ -8,6 +8,7 @@ flet = "*"
 asyncio = "*"
 django = "*"
 djangorestframework = "*"
+python-dotenv = "*"
 
 [dev-packages]
 

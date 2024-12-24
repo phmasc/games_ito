@@ -1,13 +1,18 @@
 from random import choice, sample
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 from django.shortcuts import get_object_or_404
 from django.utils.timezone import now
 
-from .models import Room, Player, RoomPlayer
-from .serializers import RoomPlayerSerializer
+from .models import Room, Player, RoomPlayer, RoomConfig
+from .serializers import RoomPlayerSerializer, RoomConfigSerializer
 from theme.models import Theme
+
+
+class RoomConfigListView(generics.ListAPIView):
+    queryset = RoomConfig.objects.all()
+    serializer_class = RoomConfigSerializer
 
 
 class RoomSetupView(APIView):
