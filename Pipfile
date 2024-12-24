@@ -12,4 +12,5 @@ flet = "*"
 python_version = "3.12"
 
 [scripts]
+start = "python flet/main.py"
 dev = "python flet/main.py"
