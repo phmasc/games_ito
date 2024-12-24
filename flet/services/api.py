@@ -16,3 +16,8 @@ class ItoAPI():
                 "success": True,
                 room: self.rooms[room]
             }
+        else:
+            return {
+                "success": False,
+                "message": f"Sala {room} não existe"
+            }

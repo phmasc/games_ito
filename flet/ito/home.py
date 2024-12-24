@@ -37,7 +37,8 @@ def ito_page(page: ft.Page):
                 page.go(f"/ito/{room}/game")
             else:
                 pb.visible = False
-                error_message.value = "Erro ao iniciar o jogo."
+                message = response.get('message, "Erro ao iniciar o jogo')
+                room_input.error_text = message
                 page.update()
         except Exception as e:
             pb.visible = False
@@ -49,15 +50,16 @@ def ito_page(page: ft.Page):
 
     # Função chamada ao clicar no botão "Iniciar"
     def on_start_game_click(e):
+        if not name_input.value:
+            name_input.error_text = "Insira um nome"
+        if not room_input.value:
+            room_input.error_text = "Insira uma sala"
+
         name = name_input.value
         room = room_input.value
         if name and room:
             asyncio.run(start_game(name, room))
-        else:
-            error_message.value = "Insira o Nome e a Sala"
-            error_message.bgcolor = "#FF0000"
-            error_message.color = "#FFFFFF"
-            error_message.update()
+        page.update()
 
     page.views.append(
         ft.View(
