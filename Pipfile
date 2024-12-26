@@ -9,6 +9,7 @@ asyncio = "*"
 django = "*"
 djangorestframework = "*"
 python-dotenv = "*"
+requests = "*"
 
 [dev-packages]
 
