@@ -19,11 +19,12 @@ python_version = "3.12"
 
 [scripts]
 start = "python flet/main.py"
-backend = "sh -c 'python manage.py migrate && gunicorn --workers 10 --timeout 60 -b 127.0.0.1:9501 pp.wsgi:application'"
+backend = "sh -c 'python manage.py migrate && gunicorn --workers 10 --timeout 60 -b 127.0.0.1:9502 back.wsgi:application'"
 flet = "flet -d -r flet/main.py"
 runserver = "python manage.py runserver 0.0.0.0:8500"
 android = "flet run -d -r flet/main.py --android"
 dev = "'python manage.py runserver 0.0.0.0:8500' && 'flet -d -r flet/main.py'"
+collectstatic = "python manage.py collectstatic"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
 createsuperuser = "python manage.py createsuperuser"
